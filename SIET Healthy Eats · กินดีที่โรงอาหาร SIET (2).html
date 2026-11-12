@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="th"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>SIET Healthy Eats · กินดีที่โรงอาหาร SIET</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mitr:wght@400;500&family=Noto+Sans+Thai:wght@400;600&display=swap">
+<style>
+:root{--g:#2f7d4f;--gd:#1f5a38;--gl:#e2efe4;--bg:#faf8f3;--cd:#fff;--ink:#1f2a22;--mu:#566058;--ln:#e3dfd3;--wr:#9a3f12;--wb:#fbeadc;--am:#e0a43a;--tn:#c9b79a;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--g:#6fc28b;--gd:#8fd6a6;--gl:#1f3326;--bg:#141a16;--cd:#1c241f;--ink:#e8efe9;--mu:#a3afa6;--ln:#2e3a32;--wr:#f0a173;--wb:#3a2418}}
+:root[data-theme="dark"]{--g:#6fc28b;--gd:#8fd6a6;--gl:#1f3326;--bg:#141a16;--cd:#1c241f;--ink:#e8efe9;--mu:#a3afa6;--ln:#2e3a32;--wr:#f0a173;--wb:#3a2418}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 'Noto Sans Thai',system-ui,sans-serif}
+h1,h2,h3{font-family:'Mitr','Noto Sans Thai',sans-serif;font-weight:500;line-height:1.25;margin:0 0 .5rem}
+h1{font-size:clamp(1.9rem,6vw,3rem)}h2{font-size:1.5rem}h3{font-size:1.05rem}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--cd);border-bottom:1px solid var(--ln);display:flex;align-items:center;gap:.5rem;padding:.5rem 1rem}
+.logo{font-family:'Mitr',sans-serif;color:var(--g);white-space:nowrap}
+nav{display:flex;gap:.25rem;overflow-x:auto;flex:1}
+nav a{padding:.4rem .7rem;border-radius:99px;color:var(--ink);text-decoration:none;white-space:nowrap;font-size:.92rem}
+nav a.on{background:var(--g);color:#fff}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible{outline:3px solid var(--am);outline-offset:2px}
+main{max-width:1000px;margin:0 auto;padding:1.25rem 1rem 3rem}
+.btn{background:var(--g);color:#fff;border:0;border-radius:10px;padding:.6rem 1.1rem;font:inherit;font-weight:600;cursor:pointer;text-decoration:none;display:inline-block}
+.btn.o{background:transparent;color:var(--g);border:2px solid var(--g)}
+.btn.sm{padding:.3rem .7rem;font-size:.88rem}
+.hero{display:grid;gap:1.5rem;align-items:center;padding:1rem 0}
+@media(min-width:720px){.hero{grid-template-columns:1.2fr 1fr}}
+.plate{width:min(260px,70vw);aspect-ratio:1;border-radius:50%;margin:auto;background:conic-gradient(var(--g) 0 50%,var(--am) 50% 75%,var(--tn) 75% 100%);border:10px solid var(--cd);box-shadow:0 0 0 2px var(--ln)}
+.leg{display:flex;gap:.8rem;flex-wrap:wrap;justify-content:center;font-size:.85rem;margin-top:.6rem}
+.leg i{display:inline-block;width:.8rem;height:.8rem;border-radius:50%;margin-right:.3rem}
+.grid{display:grid;gap:1rem;grid-template-columns:repeat(auto-fill,minmax(260px,1fr))}
+.card,.box{background:var(--cd);border:1px solid var(--ln);border-radius:14px;padding:1rem}
+.card{display:flex;flex-direction:column;gap:.4rem}
+.ph{height:64px;border-radius:10px;background:var(--gl);display:flex;align-items:center;justify-content:space-between;padding:0 .8rem;font-size:2rem}
+.tag{font-size:.72rem;background:var(--wb);color:var(--wr);padding:.1rem .5rem;border-radius:99px;font-family:'Noto Sans Thai',sans-serif}
+.chip{font-size:.78rem;background:var(--gl);color:var(--gd);padding:.1rem .55rem;border-radius:99px;display:inline-block;margin:0 .2rem .2rem 0}
+.chip.w{background:var(--wb);color:var(--wr);font-weight:600}
+.mu{color:var(--mu);font-size:.88rem}
+.warn{background:var(--wb);color:var(--wr);border-radius:10px;padding:.6rem .8rem;font-size:.9rem;margin:.6rem 0}
+.row{display:flex;gap:.75rem;flex-wrap:wrap;align-items:end}
+label{display:block;font-weight:600;font-size:.9rem;margin-bottom:.25rem}
+input[type=number],input[type=search],select{width:100%;padding:.55rem;border:1px solid var(--ln);border-radius:8px;background:var(--bg);color:var(--ink);font:inherit}
+.fs{border:1px solid var(--ln);border-radius:10px;padding:.5rem .8rem;margin:0}
+.fs label{display:inline-block;font-weight:400;margin-right:.9rem}
+.f2{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));margin-bottom:1rem}
+.err{color:var(--wr);font-weight:600;margin:.4rem 0}
+.bar{height:14px;border-radius:7px;background:var(--ln);overflow:hidden;display:flex}
+.bar>span{display:block;height:100%}
+.chips button{border:1px solid var(--ln);background:var(--cd);color:var(--ink);border-radius:99px;padding:.3rem .8rem;margin:0 .3rem .4rem 0;cursor:pointer;font:inherit;font-size:.9rem}
+.chips button.on{background:var(--g);color:#fff;border-color:var(--g)}
+details{background:var(--cd);border:1px solid var(--ln);border-radius:12px;padding:.7rem 1rem;margin-bottom:.6rem}
+summary{cursor:pointer;font-weight:600}
+table{width:100%;border-collapse:collapse}td,th{padding:.4rem;border-bottom:1px solid var(--ln);text-align:left}
+pre{overflow-x:auto;background:var(--gl);padding:.8rem;border-radius:10px;font-size:.8rem}
+.sec{margin-top:2rem}
+[hidden]{display:none!important}
+button,a,summary{-webkit-tap-highlight-color:transparent}
+button:active,.btn:active{transform:scale(.97)}
+.hl{color:inherit;text-decoration:none}.hl:active{background:var(--gl)}
+.bn{display:none}
+.sh{position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:20;display:flex;align-items:flex-end}
+.sh .pn{background:var(--cd);width:100%;border-radius:20px 20px 0 0;padding:.6rem 1rem calc(1rem + env(safe-area-inset-bottom,0px))}
+.sh .gr{width:40px;height:4px;border-radius:2px;background:var(--ln);margin:0 auto .8rem}
+.sh .tl{display:grid;grid-template-columns:repeat(3,1fr);gap:.6rem}
+.sh .tl a{display:flex;flex-direction:column;align-items:center;gap:.2rem;padding:.8rem .3rem;border-radius:14px;background:var(--gl);color:var(--ink);text-decoration:none;font-size:.9rem;min-height:76px;text-align:center}
+.sh .tl span{font-size:1.6rem}
+#toast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(5.2rem + env(safe-area-inset-bottom,0px));background:var(--ink);color:var(--bg);padding:.55rem 1rem;border-radius:99px;z-index:15;font-size:.9rem;max-width:90vw}
+#pb2{width:100%;min-height:56px;font-size:1.1rem}
+@media(max-width:719px){
+ header nav,#ac{display:none}
+ header{padding:.5rem .9rem}
+ .logo{flex:1;font-size:1.1rem}
+ main{padding:1rem .9rem calc(6rem + env(safe-area-inset-bottom,0px))}
+ h1{font-size:1.9rem}
+ .btn,select,input[type=number],input[type=search],input[type=email]{min-height:46px;font-size:16px}
+ .card .btn{width:100%}
+ .grid{grid-template-columns:1fr}
+ .plate{width:min(200px,55vw)}
+ .f2{grid-template-columns:1fr 1fr}
+ .fs label{display:block;padding:.45rem 0;margin:0}
+ input[type=checkbox]{width:22px;height:22px;vertical-align:middle;margin-right:.4rem}
+ .chips{display:flex;overflow-x:auto;flex-wrap:nowrap;margin:0 -.9rem;padding:0 .9rem .3rem}
+ .chips button{flex:none;min-height:40px}
+ #go{width:100%;position:sticky;bottom:calc(5rem + env(safe-area-inset-bottom,0px))}
+ .bn{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:10;background:var(--cd);border-top:1px solid var(--ln);padding:.3rem .3rem calc(.3rem + env(safe-area-inset-bottom,0px))}
+ .bn a{flex:1;display:flex;flex-direction:column;align-items:center;padding:.3rem 0;color:var(--mu);text-decoration:none;font-size:.72rem;min-height:52px;justify-content:center}
+ .bn a span{font-size:1.35rem;line-height:1.2}
+ .bn a.on{color:var(--g);font-weight:600}
+ .bn a.cta span{background:var(--g);color:#fff;border-radius:50%;width:46px;height:46px;display:flex;align-items:center;justify-content:center;margin-top:-1.3rem;box-shadow:0 2px 6px rgba(0,0,0,.25);border:3px solid var(--cd)}
+}
+.rsb{display:flex;gap:.6rem;overflow-x:auto;margin-bottom:.8rem}.rc{flex:none;width:210px;background:var(--cd);border:1px solid var(--ln);border-radius:14px;overflow:hidden;cursor:pointer;text-align:left;padding:0;font:inherit;color:inherit}.rc .im{height:80px;background:var(--gl);display:flex;gap:2px}.rc .im img{flex:1;min-width:0;width:50%;object-fit:cover}.rc .tx{padding:.5rem .7rem}.tag.h{background:var(--gl);color:var(--gd)}.card select{margin:.2rem 0}
+@media(prefers-reduced-motion:no-preference){.bar>span{transition:width .4s}}
+</style></head>
+<body>
+<header><span class="logo">🥗 SIET Healthy Eats</span><nav id="nav" aria-label="Main"></nav><span id="ac" style="display:flex;gap:.4rem;align-items:center"></span><button class="btn o sm" id="lg" aria-label="Language">EN</button></header>
+<main id="app" aria-live="polite"></main>
+<nav id="bn" class="bn" aria-label="Tabs"></nav><div id="sh" class="sh" hidden></div><div id="toast" role="status" hidden></div>
+<script>
+const R=['home','rec','menu','scan','plan','tdee','dash','edu','about'];
+const AL={pn:['ถั่วลิสง','Peanuts'],mk:['นม','Milk'],eg:['ไข่','Eggs'],so:['ถั่วเหลือง','Soy'],wh:['ข้าวสาลี/กลูเตน','Wheat/gluten'],fs:['ปลา/น้ำปลา','Fish/fish sauce'],sh:['กุ้ง/สัตว์ทะเลมีเปลือก','Shellfish']};
+const CAT={rice:['ข้าวราดแกง/จานเดียว','Rice dishes','🍚'],noodle:['ก๋วยเตี๋ยว/เส้น','Noodles','🍜'],made:['อาหารตามสั่ง/สลัด','Made-to-order','🥗'],soup:['ต้ม/โจ๊ก/ซุป','Soups','🍲'],drink:['เครื่องดื่ม','Drinks','🥤'],snack:['ของว่าง','Snacks','🍌'],salad:['ยำ/ส้มตำ/ลาบ','Salads & spicy','🥗'],curry:['ข้าวแกง','Rice & curry','🍛'],side:['ของเสริม','Sides & extras','🍳']};
+const TG={halal:'h',healthy:'hl',value:'vm'};
+// SAMPLE DATA — NOT verified. Replace with real cafeteria items. d(id,[th,en],cat,฿,kcal,P,C,F,[ingTh,ingEn],allergens,uncertain,tags(v=vegetarian,np=no pork),meals,[tipTh,tipEn])
+const d=(id,n,cat,price,kcal,p,c,f,i,al,u,tags,meals,tip)=>({id,n,cat,price,kcal,p,c,f,i,al,u,tags,meals,tip});
+const D=[
+d(1,['ข้าวกะเพราไก่ไข่ดาว','Basil chicken rice with fried egg'],'made',50,650,28,70,28,['ไก่, ใบกะเพรา, พริก, ข้าว, ไข่','chicken, holy basil, chili, rice, egg'],['eg','so'],['fs','sh'],['np'],'ld',['ขอไข่ต้มแทนไข่ดาว ลดน้ำมัน','Ask for a boiled egg and less oil']),
+d(2,['ข้าวมันไก่','Hainanese chicken rice'],'rice',45,600,25,75,22,['ไก่, ข้าวมัน, ซอสเต้าเจี้ยว','chicken, oily rice, soybean sauce'],['so'],[],['np'],'ld',['เลือกไก่ต้มไม่เอาหนัง','Choose boiled chicken without skin']),
+d(3,['ผัดไทยกุ้งสด','Pad Thai with shrimp'],'noodle',60,580,22,80,20,['เส้นจันท์, กุ้ง, ไข่, ถั่วลิสง, เต้าหู้','rice noodles, shrimp, egg, peanuts, tofu'],['pn','eg','sh','fs','so'],[],['np'],'ld',['เพิ่มถั่วงอกและผักสด','Add extra bean sprouts and fresh veg']),
+d(4,['ก๋วยเตี๋ยวหมูสับน้ำใส','Clear pork noodle soup'],'noodle',45,420,22,55,10,['เส้นเล็ก, หมูสับ, ผักบุ้ง','rice noodles, minced pork, morning glory'],['pn','fs','so'],[],[],'lb',['ซดน้ำแต่พอดี ลดโซเดียม','Sip the broth in moderation to limit sodium']),
+d(5,['ข้าวต้มปลา','Fish rice porridge'],'soup',40,320,20,45,6,['ปลา, ข้าว, ขิง, ต้นหอม','fish, rice, ginger, spring onion'],['fs'],[],['np'],'bld',['เพิ่มผักหรือไข่ต้มให้อิ่มนาน','Add veg or a boiled egg to stay full longer']),
+d(6,['ต้มจืดเต้าหู้หมูสับ + ข้าวสวย','Tofu & pork clear soup with rice'],'soup',45,380,20,50,9,['เต้าหู้, หมูสับ, ผักกาดขาว, ข้าว','tofu, minced pork, napa cabbage, rice'],['so'],[],[],'ld',['เมนูน้ำมันน้อย เหมาะกับมื้อเย็น','Low in oil, nice for dinner']),
+d(7,['ข้าวผัดผักรวมไข่','Vegetable egg fried rice'],'rice',40,520,14,78,16,['ข้าว, ผักรวม, ไข่','rice, mixed vegetables, egg'],['eg','so'],['fs'],['v','np'],'bl',['เติมแตงกวาและขอผัดน้ำมันน้อย','Add cucumber and ask for less oil']),
+d(8,['ผัดผักรวมเต้าหู้ + ข้าวสวย','Stir-fried vegetables & tofu with rice'],'rice',45,450,17,62,14,['ผักรวม, เต้าหู้, ข้าว','mixed vegetables, tofu, rice'],['so'],['fs'],['v','np'],'ld',['เมนูผักเยอะ ขอลดซอสปรุง','Veg-rich; ask for less seasoning sauce']),
+d(9,['ส้มตำไทย + ไก่ย่าง + ข้าวเหนียว','Papaya salad, grilled chicken, sticky rice'],'made',60,560,32,65,16,['มะละกอ, ไก่ย่าง, ถั่วลิสง, ข้าวเหนียว','papaya, grilled chicken, peanuts, sticky rice'],['pn','fs','sh'],[],['np'],'ld',['ขอลดน้ำตาล/น้ำปลา','Ask for less sugar and fish sauce']),
+d(10,['ข้าวไข่เจียว','Thai omelet with rice'],'rice',35,560,17,60,26,['ไข่, ข้าว','egg, rice'],['eg'],['so'],['v','np'],'bl',['เพิ่มผักข้างจานเพื่อความสมดุล','Add a side of vegetables for balance']),
+d(11,['โจ๊กหมูใส่ไข่','Pork congee with egg'],'soup',35,330,15,45,9,['ข้าว, หมูสับ, ไข่, ขิง','rice, minced pork, egg, ginger'],['eg','so'],[],[],'b',['ขอไข่เพิ่มหรือผักเพิ่มจะอิ่มนานขึ้น','Add egg or veg to feel full longer']),
+d(12,['โยเกิร์ตกล้วยโอ๊ต','Yogurt with banana & oats'],'snack',35,250,12,38,5,['โยเกิร์ต, กล้วย, ข้าวโอ๊ต','yogurt, banana, oats'],['mk'],['wh'],['v','np'],'b',['เลือกโยเกิร์ตรสธรรมชาติ','Choose plain yogurt']),
+d(13,['ไก่ย่าง 2 ไม้ + ข้าวเหนียว','2 grilled chicken skewers & sticky rice'],'made',40,480,24,62,14,['ไก่, ข้าวเหนียว, น้ำจิ้ม','chicken, sticky rice, dipping sauce'],['so'],[],['np'],'bl',['กินคู่ผักสดหรือผลไม้','Pair with fresh veg or fruit']),
+d(14,['สลัดอกไก่','Chicken breast salad'],'made',55,330,30,18,16,['อกไก่, ผักสลัด, มะเขือเทศ, ไข่ต้ม','chicken breast, lettuce, tomato, boiled egg'],['eg'],['so','fs','pn'],['np'],'ld',['ขอน้ำสลัดแยก','Ask for dressing on the side']),
+d(15,['ก๋วยเตี๋ยวไก่น้ำใส','Clear chicken noodle soup'],'noodle',45,400,24,55,8,['เส้นเล็ก, ไก่ฉีก, ผักกาด','rice noodles, shredded chicken, greens'],['so'],['fs'],['np'],'lb',['ใส่ผักเพิ่มได้','Ask for extra greens']),
+d(16,['น้ำเปล่า','Drinking water'],'drink',10,0,0,0,0,['น้ำ','water'],[],[],['v','np'],'bld',['ตัวเลือกที่ดีที่สุดระหว่างวัน','A great default through the day']),
+d(17,['นมถั่วเหลืองไม่หวาน','Unsweetened soy milk'],'drink',15,90,7,6,4,['ถั่วเหลือง, น้ำ','soybeans, water'],['so'],[],['v','np'],'b',['ทางเลือกแทนเครื่องดื่มหวาน','Alternative to sweet drinks']),
+d(18,['ชาเย็น','Thai iced tea'],'drink',25,220,2,38,6,['ชา, นม, น้ำตาล','tea, milk, sugar'],['mk'],[],['v','np'],'bld',['ขอหวานน้อย','Ask for less sweet']),
+d(19,['ผลไม้ตัดแต่ง','Cut fruit'],'snack',25,90,1,22,0,['ผลไม้ตามฤดูกาล','seasonal fruit'],[],[],['v','np'],'bld',['เพิ่มใยอาหารให้มื้อ','Adds fibre to a meal'])
+];
+// Real shop menus: names/prices as supplied. Nutrition = rough per-dish-type estimate (not measured). Allergen 'u' = typical, unconfirmed.
+const RST={ma:{th:'ร้านแม่อุ่นเรือน',en:'Mae Aun Ruean',img:[]},pa:{th:'ร้านครัวป้าต้อ',en:'Krua Pa Tor',img:[]},bm:{th:'ร้านบังมุฟี',en:'Bang Mufi',halal:1,img:[]}};
+// img: put image URLs/data URIs here (Mae Aun Ruean = Image 1 and Image 4, not yet received)
+const NU={br:[600,26,72,22],fr:[580,20,82,18],om:[560,18,62,26],kv:[540,22,70,18],ym:[260,16,26,10],nd:[560,18,78,18],sk:[380,18,50,10],pp:[120,3,22,3],lb:[230,20,7,14],ty:[150,15,8,6],cn:[480,12,70,16],rc:[200,4,44,0],pn:[190,3,43,1],hs:[330,30,18,16],jc:[700,25,95,24],jb:[650,25,85,20],tk:[750,28,80,34],sp:[620,16,90,20],st:[620,35,40,32],cu:[700,28,85,24],cb:[250,16,8,16],bn:[480,25,60,14],by:[650,25,85,22],fc:[220,14,8,14],sg:[90,4,3,7],eg:[80,6,1,5]};
+let NID=100;
+const PRK=p=>[['หมู','Pork',p,'p'],['หมูกรอบ','Crispy pork',p,'p'],['ไก่','Chicken',p],['เนื้อ','Beef',p]],PCB=p=>[['หมู','Pork',p,'p'],['ไก่','Chicken',p],['เนื้อ','Beef',p]],SEA=p=>[['กุ้ง','Shrimp',p,'s'],['หมึก','Squid',p,'s'],['ทะเลรวม','Mixed seafood',p,'s']],S1=(p,f)=>[[null,null,p,f]];
+const n=(r,t,e,cat,V,nu,u,tags,o)=>{const q=NU[nu],vv=V.map(v=>({th:v[0],en:v[1],pr:v[2],pk:/p/.test(v[3]||''),sh:/s/.test(v[3]||'')}));D.push({id:++NID,r,n:[t,e],cat,V:vv,price:Math.min(...vv.map(v=>[].concat(v.pr)[0])),kcal:q[0],p:q[1],c:q[2],f:q[3],i:['ตามสูตรของร้าน','per the shop recipe'],al:[],u:u||[],tags:tags||[],meals:'bld',tip:['ขอลดน้ำมัน/ซอสปรุงได้','Ask for less oil or sauce'],...o})};
+const SF=['so','fs'],H=['h','np'],RN=['ราคาเป็นช่วง ตรวจสอบราคาจริงที่ร้าน','Price range: confirm at the shop'];
+n('ma','ผัดกะเพรา','Stir-fried holy basil','made',PRK(50),'br',SF,[],{i:['ใบกะเพรา, พริก, กระเทียม, โปรตีนที่เลือก, ข้าว','holy basil, chili, garlic, chosen protein, rice']});
+n('ma','ผัดกะเพราหน่อไม้','Holy basil with bamboo shoots','made',PRK(50),'br',SF);
+n('ma','ผัดกะเพราทะเล','Holy basil with seafood','made',SEA(60),'br',SF);
+n('ma','ผัดกะเพราหน่อไม้ทะเล','Holy basil, bamboo shoots & seafood','made',SEA(60),'br',SF);
+n('ma','ผัดพริกแกง','Stir-fried red curry paste','made',PRK(50),'br',SF);
+n('ma','ผัดพริกแกงทะเล','Red curry paste with seafood','made',SEA(60),'br',SF);
+n('ma','ข้าวกระเทียม','Garlic stir-fried rice','rice',PRK(50),'fr',['eg','so']);
+n('ma','ข้าวกระเทียมทะเล','Garlic stir-fried rice with seafood','rice',SEA(60),'fr',['eg','so']);
+n('ma','ข้าวผัด','Fried rice','rice',PCB(50),'fr',['eg','so']);
+n('ma','ข้าวผัดทะเล','Seafood fried rice','rice',SEA(60),'fr',['eg','so']);
+n('ma','ข้าวผัดต้มยำ','Tom yum fried rice','rice',S1(60),'fr',['eg','so','fs','sh']);
+n('ma','ผัดน้ำมันหอยราดข้าว','Oyster sauce stir-fry over rice','made',PCB(50),'st',['so','fs','sh']);
+n('ma','ข้าวไข่เจียว','Omelet rice','rice',[['หมูสับ','Minced pork',50,'p'],['ไก่สับ','Minced chicken',50],['กุ้งสับ','Minced shrimp',50,'s']],'om',['so'],[],{al:['eg']});
+n('ma','ข้าวคะน้าหมู','Rice with Chinese kale & pork','rice',[['หมูกรอบ','Crispy pork',50,'p'],['หมูชิ้น','Sliced pork',50,'p']],'kv',SF);
+n('ma','ข้าวผัดผักรวม','Mixed vegetable fried rice','rice',S1(50),'fr',['eg','so']);
+n('ma','ข้าวผักบุ้งไฟแดง','Rice with stir-fried morning glory','rice',S1(50),'kv',SF);
+n('ma','ข้าวถั่วงอกผัดหมูสับ','Rice with bean sprouts & minced pork','rice',S1(50,'p'),'kv',SF);
+n('ma','ยำวุ้นเส้น','Glass noodle salad','salad',S1(50),'ym',['fs','sh','pn']);
+n('ma','ยำมาม่า','Spicy instant noodle salad','salad',S1(50),'ym',['fs','sh'],[],{al:['wh']});
+n('ma','ยำหมูยอ','Vietnamese pork sausage salad','salad',S1(50,'p'),'ym',['fs','pn']);
+n('ma','ยำทะเลรวม','Mixed seafood salad','salad',S1(60,'s'),'ym',['fs','pn']);
+n('ma','ผัดซีอิ๊ว','Pad See Ew','noodle',S1(50),'nd',['eg','so']);
+n('ma','ราดหน้า','Rad Na (noodles with gravy)','noodle',S1(50),'nd',['so']);
+n('ma','สุกี้น้ำ','Suki soup','noodle',S1(50),'sk',['eg','so','fs']);
+n('ma','สุกี้แห้ง','Dry suki','noodle',S1(50),'nd',['eg','so','fs']);
+n('ma','มาม่าผัดขี้เมา','Drunken-style stir-fried instant noodles','noodle',S1(50),'nd',SF,[],{al:['wh']});
+n('ma','ผัดหมี่โคราช','Korat-style stir-fried rice noodles','noodle',S1(50),'nd',['so','fs'],['vm'],{x:{th:'เพิ่มไข่',en:'Add egg',pr:10}});
+n('ma','ส้มตำ','Papaya salad','salad',[['ตำไทย','Thai-style',40],['ตำปูปลาร้า','Salted crab & fermented fish',40,'s']],'pp',['fs','pn']);
+n('ma','ตำแตง','Cucumber salad (Tam Taeng)','salad',S1(40),'pp',['fs','pn']);
+n('ma','ตำถั่ว','Long bean salad (Tam Thua)','salad',S1(40),'pp',['fs','pn']);
+n('ma','ลาบหมู','Spicy minced pork salad (Larb Moo)','salad',S1(50,'p'),'lb',['fs']);
+n('ma','ลาบไก่','Spicy minced chicken salad (Larb Gai)','salad',S1(50),'lb',['fs']);
+n('ma','ยำอกไก่เผ็ด','Spicy chicken breast salad','salad',S1(50),'hs',['fs'],['hl']);
+n('ma','ต้มยำ','Tom yum soup','soup',[['หมู','Pork',50,'p'],['ไก่','Chicken',50]],'ty',['fs'],[],{meals:'ld'});
+n('ma','ต้มยำทะเลรวม','Tom yum soup with mixed seafood','soup',S1(60,'s'),'ty',['fs'],[],{meals:'ld'});
+n('ma','ขนมจีน','Thai rice noodles with curry sauce','noodle',[['น้ำยากะทิ','Coconut milk curry sauce',45],['น้ำยาไก่โคราช','Korat-style chicken curry sauce',45]],'cn',['fs']);
+n('ma','ข้าวสวย','Steamed rice','side',S1(10),'rc');
+n('ma','ขนมจีนเปล่า','Plain Thai rice noodles','side',S1(10),'pn');
+n('pa','ข้าวแกงกะหรี่ญี่ปุ่น','Japanese curry rice','rice',[['ไก่ทอด','Fried chicken',[40,45]],['หมูทอด','Fried pork',[40,45],'p']],'jc',['wh'],[],{nt:RN});
+n('pa','ข้าวหน้าหมูสไลซ์สไตล์ญี่ปุ่น','Japanese-style sliced pork rice bowl','rice',S1(45,'p'),'jb',['so']);
+n('pa','ข้าวหมูทงคัตสึ','Pork tonkatsu rice','rice',S1(55,'p'),'tk',['wh','eg']);
+n('pa','ข้าวหมูคัตสึ','Traditional pork katsu rice','rice',S1(45,'p'),'tk',['wh','eg']);
+n('pa','ข้าวหมูกรอบน้ำจิ้มแจ่ว','Crispy pork rice with jaew dipping sauce','rice',S1(45,'p'),'kv',['fs']);
+n('pa','สปาเก็ตตี้ซอสมะเขือเทศ','Spaghetti with tomato sauce','made',S1([69,79]),'sp',[],[],{al:['wh'],nt:['ราคาตามป้ายหน้าร้าน','Use the exact price on the shop sign']});
+n('pa','สเต็กไก่ / สเต็กหมู','Chicken or pork steak','made',[['ไก่','Chicken',[69,79]],['หมู','Pork',[69,79],'p']],'st',['so'],[],{nt:['ราคาตามป้ายหน้าร้าน','Use the exact price on the shop sign']});
+n('bm','ข้าวราดแกง','Rice and curry','curry',[['1 อย่าง','1 entrée',30],['2 อย่าง','2 entrées',40],['3 อย่าง','3 entrées',45]],'cu',[],H);
+n('bm','แกงแยก','Curry served separately','curry',[['ใส่ถ้วย','In a bowl',40],['ใส่ถุง','In a bag',40]],'cb',[],H);
+n('bm','ก๋วยเตี๋ยวตุ๋น','Braised noodles','noodle',[['เนื้อตุ๋น','Braised beef',[50,60]],['ไก่ตุ๋น','Braised chicken',[50,60]]],'bn',['so'],H,{nt:RN});
+n('bm','ข้าวหมกไก่','Chicken biryani','rice',S1([40,50]),'by',[],H,{nt:RN});
+n('bm','ข้าวกะเพราเนื้อ','Stir-fried beef with holy basil over rice','made',S1(50),'br',SF,H);
+n('bm','ข้าวกะเพราไก่กรอบ','Crispy fried chicken with spicy holy basil over rice','made',S1(50),'br',SF,H);
+n('bm','อาหารตามสั่ง','Made-to-order dishes (a la carte)','made',S1(50),'br',SF,H);
+n('bm','ไก่ทอด','Fried chicken','side',S1([15,20]),'fc',[],H,{nt:RN});
+n('bm','ไส้กรอก','Sausages','side',S1([5,10]),'sg',[],H,{nt:RN});
+n('bm','ไข่ดาว / ไข่ต้ม','Fried or boiled egg','side',[['ไข่ดาว','Fried egg',10],['ไข่ต้ม','Boiled egg',10]],'eg',[],H,{al:['eg']});
+D.forEach(m=>{if(!m.V)m.V=[{th:null,en:null,pr:m.price,pk:!m.tags.includes('np'),sh:false}]});
+const VSEL={},RMAP={};
+const okV=(v,p)=>!(p.diet.includes('np')&&v.pk)&&!(p.al.includes('sh')&&v.sh);
+const cv=m=>{if(VSEL[m.id]==null){const p=P(),i=m.V.findIndex(v=>okV(v,p));VSEL[m.id]=i<0?0:i}return m.V[VSEL[m.id]]};
+const pmin=m=>[].concat(cv(m).pr)[0],prs=v=>Array.isArray(v.pr)?'฿'+v.pr[0]+'–'+v.pr[1]:'฿'+v.pr;
+const rst=m=>{const v=cv(m),r=m.r&&RST[m.r];return (r?`<div class='mu'>🏪 ${x(r.th,r.en)}</div>`:'')+`<div>${m.tags.includes('h')?`<span class='tag h'>☪ ${x('ฮาลาล','Halal')}</span> `:''}${m.tags.includes('hl')?`<span class='tag h'>🌿 ${x('เมนูสุขภาพ','Healthy menu')}</span> `:''}${m.tags.includes('vm')?`<span class='tag h'>💰 ${x('เมนูคุ้มค่า','Value meal')}</span>`:''}</div>`+(m.x?`<div class='mu'>+ ${x(m.x.th,m.x.en)} ฿${m.x.pr}</div>`:'')+((m.nt||Array.isArray(v.pr))?`<div class='mu'>ℹ ${x(...(m.nt||RN))}</div>`:'')};
+const vsel=m=>{cv(m);const p=P();return m.V.length>1?`<select data-v='${m.id}' aria-label='${x('เลือกตัวเลือก','Choose option')}'>${m.V.map((v,i)=>`<option value='${i}' ${i==VSEL[m.id]?'selected':''}>${esc(x(v.th,v.en))} — ${prs(v)}${okV(v,p)?'':' ⚠'}</option>`).join('')}</select>`:''};
+const RS={rt:['ใกล้เคียงพลังงานต่อมื้อที่ประมาณจาก TDEE ของคุณ','Close to your estimated per-meal energy (from TDEE)'],rp:['โปรตีนค่อนข้างดี','Good protein for fullness'],rc:['คาร์โบไฮเดรตให้พลังงาน','Carbs for steady energy'],rb:['พลังงานอยู่ในช่วงมื้อหลักทั่วไป','Calories in a typical main-meal range'],rf:['ไขมันไม่สูงมาก','Moderate fat'],rcheap:['ราคาประหยัด','Budget-friendly'],ralt:['ตัวเลือกใกล้เคียงที่สุด (ราคาอาจเกินงบ)','Closest option available (may exceed budget)']};
+let S=(()=>{try{return JSON.parse(localStorage.getItem('siet')||'{}')}catch(e){return{}}})(),L=S.lang||'th';
+const sv=()=>{if(S.cur){S.users=S.users||{};S.users[S.cur]={prof:S.prof,plan:S.plan,tdee:S.tdee,log:S.log}}try{localStorage.setItem('siet',JSON.stringify(S))}catch(e){}};
+const x=(a,b)=>L=='th'?a:b,nm=m=>x(...m.n),$=s=>document.querySelector(s),P=()=>Object.assign({budget:150,meal:'l',goal:'bal',act:'mid',age:'18-22',diet:[],al:[]},S.prof||{});
+const alc=m=>[...new Set(m.al.concat(cv(m).sh?['sh']:[]))].map(a=>`<span class="chip">${x(...AL[a])}</span>`).join('');
+function score(m,p){let s=10,r=[];
+ if(p.goal=='sport'){s+=Math.min(m.p,35)*1.3;if(m.p>=24)r.push('rp')}
+ else if(p.goal=='energy'){s+=Math.min(m.c,80)*.6;if(m.c>=60)r.push('rc');if(m.f<=20)s+=4}
+ else{if(m.p>=15&&m.p<=35){s+=14;r.push('rp')}if(m.kcal>=350&&m.kcal<=650){s+=12;r.push('rb')}if(m.f<=20){s+=6;r.push('rf')}}
+ if(p.act=='high'&&m.kcal>=500)s+=4;if(p.act=='low'&&m.kcal<=500)s+=4;
+ s+=Math.max(0,8-m.price/10);if(m.price<=40)r.push('rcheap');if(p.t){const dv=Math.abs(m.kcal-p.t)/p.t;s+=Math.max(0,10-dv*20);if(dv<=.2)r.push('rt')}return{s,r}}
+function recommend(p){const share=({b:.25,l:.4,d:.35})[p.meal]*p.budget;let ex=0;
+ const pool=D.filter(m=>m.cat!='drink'&&m.cat!='side'&&m.meals.includes(p.meal)&&p.diet.every(t=>t=='np'?m.V.some(v=>!v.pk):m.tags.includes(t))&&((m.al.some(a=>p.al.includes(a))||(p.al.includes('sh')&&m.V.every(v=>v.sh)))?(ex++,false):true));
+ const okL=pool.filter(m=>m.price<=share),sc=okL.map(m=>({m,...score(m,{...p,t:S.tdee?S.tdee.tdee*({b:.25,l:.4,d:.35})[p.meal]:0})})).map(o=>{const hi=(S.hist||[]).indexOf(o.m.id);o.s+=Math.random()*5-(hi>=0?Math.max(3,14-hi):0);return o}),out=[],seen={};
+ while(sc.length&&out.length<6){sc.forEach(o=>o.e=o.s-(seen[o.m.cat]||0)*4-(seen['r'+o.m.r]||0)*3);sc.sort((a,b)=>b.e-a.e);const o=sc.shift();seen[o.m.cat]=(seen[o.m.cat]||0)+1;seen['r'+o.m.r]=(seen['r'+o.m.r]||0)+1;out.push(o)}
+ const alt=out.length?[]:pool.slice().sort((a,b)=>a.price-b.price).slice(0,3).map(m=>({m,r:['ralt']}));return{out,alt,ex,share,ok:okL}}
+function card(m,r){const p=P(),hit=m.al.concat(cv(m).sh?['sh']:[]).filter(a=>p.al.includes(a)),unk=m.u.filter(a=>p.al.includes(a)),inP=(S.plan||[]).includes(m.id);
+ RMAP[m.id]=r;return `<article class="card" data-id="${m.id}"><div class="ph"><span aria-hidden="true">${CAT[m.cat][2]}</span><span class="tag">${m.r?x('โภชนาการประมาณจากประเภทอาหาร','Nutrition: rough estimate'):x('ข้อมูลตัวอย่าง ยังไม่ยืนยัน','Sample · unverified')}</span></div>
+ <h3>${nm(m)}</h3><div class="mu">${x(m.n[1],m.n[0])}</div>${rst(m)}${vsel(m)}
+ <div><b>${prs(cv(m))}</b> · ~${m.kcal} kcal <span class="mu">(${x('ประมาณการ','estimate')})</span></div>
+ <div class="mu">${x('โปรตีน','Protein')} ${m.p}g · ${x('คาร์บ','Carbs')} ${m.c}g · ${x('ไขมัน','Fat')} ${m.f}g</div>
+ <div class="mu">${x('ส่วนประกอบ','Ingredients')}: ${x(...m.i)}</div>
+ <div>${alc(m)||`<span class="mu">${x('ไม่มีสารก่อภูมิแพ้หลักที่ระบุ (โปรดยืนยันกับร้าน)','No major allergens listed (confirm with vendor)')}</span>`}</div>
+ ${hit.length?`<div class="warn">⚠ ${x('มีส่วนผสมที่คุณแพ้','Contains your allergen')}: ${hit.map(a=>x(...AL[a])).join(', ')}</div>`:''}
+ ${unk.length?`<div class="warn">⚠ ${x('ไม่แน่ใจว่ามี','May contain')}: ${unk.map(a=>x(...AL[a])).join(', ')} — ${x('ถามร้านก่อนสั่ง','ask the vendor')}</div>`:''}
+ ${r&&r.length?`<div class="mu">✔ ${x('เหตุผลที่แนะนำ','Why')}: ${r.map(k=>x(...RS[k])).join(' · ')}</div>`:''}
+ <div class="mu">💡 ${x(...m.tip)}</div>
+ <button class="btn ${inP?'o':''} sm" data-t="${m.id}">${inP?x('นำออกจากแผน','Remove from plan'):x('เพิ่มในแผนมื้ออาหาร','Add to plan')}</button></article>`}
+const V={},B={};
+V.home=()=>`<section class="hero"><div><h1>${x('กินดี ได้ง่ายๆ ที่โรงอาหาร SIET','Eat well at the SIET cafeteria')}</h1><p>${x('ตอบไม่กี่ข้อ แล้วดูเมนูที่เหมาะกับงบ ความชอบ และอาหารที่ต้องเลี่ยง','Answer a few questions to see meals that fit your budget, tastes and allergies.')}</p><p><a class="btn" href="#rec">${x('เริ่มรับคำแนะนำ','Get recommendations')}</a> <a class="btn o" href="#menu">${x('ดูเมนูทั้งหมด','Browse the menu')}</a></p></div>
+ <div><div class="plate" role="img" aria-label="${x('จานสมดุล','Balanced plate')}"></div><div class="leg"><span><i style="background:var(--g)"></i>${x('ผัก/ผลไม้ ครึ่งจาน','Veg & fruit ½')}</span><span><i style="background:var(--am)"></i>${x('โปรตีน ¼','Protein ¼')}</span><span><i style="background:var(--tn)"></i>${x('ข้าว/แป้ง ¼','Carbs ¼')}</span></div></div></section>
+ <div class="warn">${x('เมนูและราคาของร้านแม่อุ่นเรือน ครัวป้าต้อ และบังมุฟีมาจากข้อมูลที่ให้มา ส่วนค่าโภชนาการเป็นการประมาณ และเมนูอื่นเป็น <b>ข้อมูลตัวอย่าง</b>','Menus and prices for Mae Aun Ruean, Krua Pa Tor and Bang Mufi come from the supplied list; nutrition values are rough estimates, and other dishes are <b>sample data</b>.')}</div>
+ <div class="grid"><a class="box hl" href="#rec"><h3>🎯 ${x('แนะนำเฉพาะคุณ','Personal picks')}</h3><p class="mu">${x('คัดกรองตามงบ อาหารที่เลี่ยง และเป้าหมาย พร้อมเหตุผล','Filtered by budget, restrictions and goals, with reasons.')}</p></a><a class="box hl" href="#plan"><h3>💰 ${x('วางแผนตามงบ','Budget planner')}</h3><p class="mu">${x('จัดมื้อทั้งวันและดูค่าใช้จ่ายรวม','Plan the day and see the total cost.')}</p></a><a class="box hl" href="#dash"><h3>📊 ${x('แดชบอร์ดโภชนาการ','Nutrition dashboard')}</h3><p class="mu">${x('เปรียบเทียบเมนูและดูสัดส่วนสารอาหาร','Compare meals and see macro balance.')}</p></a><a class="box hl" href="#scan"><h3>📷 ${x('สแกนอาหาร','Scan your food')}</h3><p class="mu">${x('ถ่ายรูปเพื่อประมาณสารอาหาร','Snap a photo to estimate nutrition.')}</p></a><a class="box hl" href="#tdee"><h3>🔥 TDEE</h3><p class="mu">${x('ประมาณพลังงานที่ใช้ต่อวัน','Estimate your daily energy use.')}</p></a></div>`;
+V.rec=()=>{const p=P(),sel=(id,o,v)=>`<select id="${id}">${o.map(([k,a,b])=>`<option value="${k}" ${k==v?'selected':''}>${x(a,b)}</option>`).join('')}</select>`,cb=(n,k,a)=>`<label><input type="checkbox" name="${n}" value="${k}" ${a.includes(k)?'checked':''}> `;
+ return `<h2>${x('แบบสอบถามเพื่อแนะนำอาหาร','Find your meals')}</h2><div class="box"><div class="f2">
+ <div><label for="age">${x('ช่วงอายุ','Age range')}</label>${sel('age',[['<18','ต่ำกว่า 18','Under 18'],['18-22','18–22','18–22'],['23+','23 ขึ้นไป','23+']],p.age)}</div>
+ <div><label for="act">${x('ระดับกิจกรรม','Activity level')}</label>${sel('act',[['low','น้อย','Low'],['mid','ปานกลาง','Moderate'],['high','มาก/เล่นกีฬา','High / sports']],p.act)}</div>
+ <div><label for="bud">${x('งบอาหารต่อวัน (บาท)','Daily food budget (฿)')}</label><input id="bud" type="number" min="20" max="1000" value="${p.budget}"></div>
+ <div><label for="goal">${x('เป้าหมาย','Goal')}</label>${sel('goal',[['bal','โภชนาการสมดุล','Balanced nutrition'],['energy','พลังงานตลอดวัน','Steady energy'],['sport','สนับสนุนการออกกำลังกาย','Support sports']],p.goal)}</div>
+ <div><label for="meal">${x('มื้ออาหาร','Meal')}</label>${sel('meal',[['b','เช้า','Breakfast'],['l','กลางวัน','Lunch'],['d','เย็น','Dinner']],p.meal)}</div></div>
+ <fieldset class="fs"><legend>${x('ข้อจำกัดด้านอาหาร','Dietary preference')}</legend>${cb('diet','v',p.diet)}${x('มังสวิรัติ (ไข่ได้)','Vegetarian (eggs ok)')}</label>${cb('diet','np',p.diet)}${x('ไม่กินหมู','No pork')}</label>${cb('diet','h',p.diet)}${x('ฮาลาล','Halal')}</label></fieldset>
+ <fieldset class="fs" style="margin-top:.8rem"><legend>${x('อาหารที่แพ้','Allergies')}</legend>${Object.keys(AL).map(k=>cb('al',k,p.al)+x(...AL[k])+'</label>').join('')}</fieldset>
+ <div id="er" class="err" role="alert"></div><button class="btn" id="go">${x('ดูเมนูแนะนำ','Show recommendations')}</button></div><div id="res" class="sec"></div>`};
+B.rec=()=>{$('#go').onclick=()=>{const b=+$('#bud').value;if(!b||b<20||b>1000){$('#er').textContent=x('กรุณากรอกงบ 20–1,000 บาท','Please enter a budget between ฿20 and ฿1,000.');return}$('#er').textContent='';
+ const g=n=>[...document.querySelectorAll(`input[name=${n}]:checked`)].map(e=>e.value);
+ S.prof={budget:b,meal:$('#meal').value,goal:$('#goal').value,act:$('#act').value,age:$('#age').value,diet:g('diet'),al:g('al')};sv();
+ for(const k in VSEL)delete VSEL[k];const p=P(),o=recommend(p),h=(o.out.length?o.out:o.alt);S.hist=[...h.map(z=>z.m.id),...(S.hist||[])].filter((v,i,a)=>a.indexOf(v)==i).slice(0,24);sv();
+ $('#res').innerHTML=`<h2>${x('ผลการแนะนำ','Your results')}</h2><div class='row' style='margin-bottom:.6rem'><button class='btn o sm' id='sf'>🔄 ${x('สุ่มชุดใหม่','Shuffle picks')}</button><button class='btn o sm' id='sp2'>🎲 ${x('เซอร์ไพรส์ฉัน','Surprise me')}</button></div><div id='sup'></div><p class="mu">${x('งบต่อมื้อโดยประมาณ','Budget for this meal')}: ฿${Math.round(o.share)}${o.ex?` · ${x('ซ่อน '+o.ex+' เมนูที่มีสารที่คุณแพ้','Hid '+o.ex+' dish(es) containing your allergens')}`:''}</p>
+ ${o.out.length?'':`<div class="warn">${x('ไม่มีเมนูตรงเงื่อนไข แสดงตัวเลือกใกล้เคียงแทน','No exact match — showing the closest alternatives.')}</div>`}
+ <div class="grid">${h.map(z=>card(z.m,z.r)).join('')||`<div class="box">${x('ไม่พบเมนู ลองปรับเงื่อนไข','Nothing found. Try relaxing a condition.')}</div>`}</div>
+ <div class="warn">${x('คำแนะนำนี้เป็นข้อมูลทั่วไป ไม่ใช่คำแนะนำทางการแพทย์ และควรยืนยันส่วนผสมและการปนเปื้อนข้ามกับร้านค้าเสมอ','General guidance only, not medical advice. Always confirm ingredients and cross-contamination with the vendor.')}</div>`;bindT();$('#sf').onclick=()=>$('#go').click();$('#sp2').onclick=()=>surprise(o.ok,'#sup');$('#res').scrollIntoView({behavior:'smooth'})}};
+V.menu=()=>`<h2>${x('เมนูโรงอาหาร SIET','SIET cafeteria menu')}</h2>
+ <div class="f2"><div style="grid-column:1/-1"><label for="q">${x('ค้นหาชื่อเมนูหรือวัตถุดิบ','Search dish or ingredient')}</label><input id="q" type="search"></div>
+ <div><label for="mp">${x('ราคาสูงสุด','Max price')}: ฿<span id="mpv">100</span></label><input id="mp" type="range" min="10" max="100" value="100" style="width:100%"></div>
+ <div><label for="mk">${x('พลังงานสูงสุด (kcal)','Max kcal')}</label><input id="mk" type="number" min="0" placeholder="650"></div>
+ <div><label for="mpr">${x('โปรตีนขั้นต่ำ (g)','Min protein (g)')}</label><input id="mpr" type="number" min="0" placeholder="15"></div>
+ <div><label for="df">${x('ความชอบด้านอาหาร','Diet')}</label><select id="df"><option value="">${x('ทั้งหมด','Any')}</option><option value="v">${x('มังสวิรัติ','Vegetarian')}</option><option value="np">${x('ไม่มีหมู','No pork')}</option><option value="h">${x('ฮาลาล','Halal')}</option></select></div>
+ <div><label for="rs">${x('ร้านค้า','Shop')}</label><select id="rs"><option value="">${x('ทุกร้าน','All shops')}</option>${Object.entries(RST).map(([k,r])=>`<option value="${k}">${x(r.th,r.en)}</option>`).join('')}<option value="sample">${x('เมนูตัวอย่าง','Sample dishes')}</option></select></div>
+ <div><label for="so">${x('เรียงตาม','Sort')}</label><select id="so"><option value="rel">${x('เหมาะกับฉัน','Best for me')}</option><option value="pa">${x('ราคาต่ำ→สูง','Price low→high')}</option><option value="ka">${x('แคลอรี่ต่ำ→สูง','Calories low→high')}</option><option value="pd">${x('โปรตีนสูง→ต่ำ','Protein high→low')}</option></select></div></div>
+ <div id='rsb' class='rsb'></div><div class="chips" id="cats"></div><div style='margin:.4rem 0'><button class='btn o sm' id='sp'>🎲 ${x('สุ่มเมนูจากที่กรองอยู่','Surprise me')}</button></div><div id='sup'></div><p class="mu" id="cnt"></p><div class="grid" id="list"></div>`;
+B.menu=()=>{let cat='';const ce=$('#cats');
+ const drawC=()=>{ce.innerHTML=[['',x('ทั้งหมด','All')],['halal',x('☪ ฮาลาล','☪ Halal')],['healthy',x('🌿 สุขภาพ','🌿 Healthy')],['value',x('💰 คุ้มค่า','💰 Value')],...Object.entries(CAT).map(([k,v])=>[k,x(v[0],v[1])])].map(([k,l])=>`<button class="${k==cat?'on':''}" data-c="${k}">${l}</button>`).join('');ce.querySelectorAll('button').forEach(b=>b.onclick=()=>{cat=b.dataset.c;drawC();draw()})};
+ const draw=()=>{const q=$('#q').value.trim().toLowerCase(),mp=+$('#mp').value,mk=+$('#mk').value||1e9,pr=+$('#mpr').value||0,df=$('#df').value,rsel=$('#rs').value,so=$('#so').value,p=P();$('#mpv').textContent=mp;
+ let l=D.filter(m=>(!cat||(TG[cat]?m.tags.includes(TG[cat]):m.cat==cat))&&m.price<=mp&&m.kcal<=mk&&m.p>=pr&&(!df||(df=='np'?m.V.some(v=>!v.pk):m.tags.includes(df)))&&(!rsel||(rsel=='sample'?!m.r:m.r==rsel))&&(!q||(m.n.join(' ')+m.i.join(' ')+(m.r?RST[m.r].th+RST[m.r].en:'')+m.V.map(v=>(v.th||'')+(v.en||'')).join(' ')).toLowerCase().includes(q)));
+ const f={pa:(a,b)=>a.price-b.price,ka:(a,b)=>a.kcal-b.kcal,pd:(a,b)=>b.p-a.p,rel:(a,b)=>score(b,p).s-score(a,p).s}[so];l.sort(f);
+ CUR=l;$('#cnt').textContent=x(`พบ ${l.length} รายการ`,`${l.length} item(s)`);$('#list').innerHTML=l.length?l.map(m=>card(m)).join(''):`<div class="box">${x('ไม่พบเมนูที่ตรงกับตัวกรอง ลองล้างตัวกรอง','No dishes match. Try clearing a filter.')}</div>`;bindT()};
+ const rb=$('#rsb');rb.innerHTML=Object.entries(RST).map(([k,r])=>`<button class='rc' data-k='${k}'><div class='im'>${r.img.length?r.img.map(s=>`<img src='${s}' alt=''>`).join(''):`<span style='margin:auto;font-size:1.8rem'>🏪</span>`}</div><div class='tx'><b>${esc(x(r.th,r.en))}</b><div class='mu'>${esc(x(r.en,r.th))}</div>${r.halal?`<span class='tag h'>☪ ${x('ฮาลาล','Halal')}</span>`:''}${r.img.length?'':`<div class='mu' style='font-size:.72rem'>${x('รอรูปภาพร้าน','Photo pending')}</div>`}</div></button>`).join('');
+ rb.querySelectorAll('button').forEach(b=>b.onclick=()=>{const s=$('#rs');s.value=s.value==b.dataset.k?'':b.dataset.k;draw()});
+ $('#sp').onclick=()=>surprise(CUR,'#sup');
+ drawC();['q','mp','mk','mpr','df','rs','so'].forEach(i=>$('#'+i).oninput=draw);draw()};
+const pl=()=>(S.plan||[]).map(i=>D.find(m=>m.id==i)).filter(Boolean);
+V.plan=()=>{const p=P(),l=pl(),tot=l.reduce((a,m)=>a+pmin(m),0),pc=Math.min(100,tot/p.budget*100);
+ return `<h2>${x('วางแผนมื้ออาหารและงบ','Meal planner & budget')}</h2><div class="box"><div class="row"><div><label for="pb">${x('งบต่อวัน (บาท)','Daily budget (฿)')}</label><input id="pb" type="number" min="20" max="1000" value="${p.budget}"></div><button class="btn" id="sg">${x('จัดแผนให้ฉัน','Suggest a plan')}</button><button class="btn o" id="cl">${x('ล้างแผน','Clear')}</button></div>
+ <p class="mu">${x('ใช้ข้อจำกัดอาหารและอาหารที่แพ้จากแบบสอบถาม','Uses your diet and allergy answers from the questionnaire.')}</p>
+ <div class="bar" role="img" aria-label="${x('สัดส่วนงบที่ใช้','Budget used')}"><span style="width:${pc}%;background:${tot>p.budget?'var(--wr)':'var(--g)'}"></span></div>
+ <p><b>${x('รวม','Total')} ฿${tot}</b> / ฿${p.budget} · ${tot>p.budget?`<span class="err">${x('เกินงบ ฿'+(tot-p.budget),'Over by ฿'+(tot-p.budget))}</span>`:x('เหลือ ฿'+(p.budget-tot),'฿'+(p.budget-tot)+' left')}</p></div>
+ <div class="sec">${l.length?`<div class="grid">${l.map(m=>card(m)).join('')}</div>`:`<div class="box">${x('ยังไม่มีเมนูในแผน เพิ่มจากหน้าเมนูหรือกด "จัดแผนให้ฉัน"','Your plan is empty. Add dishes from the menu or tap “Suggest a plan”.')}</div>`}</div>`};
+B.plan=()=>{$('#pb').onchange=e=>{const b=+e.target.value;if(b>=20&&b<=1000){S.prof={...P(),budget:b};sv();go()}else e.target.value=P().budget};
+ $('#cl').onclick=()=>{S.plan=[];sv();go()};$('#sg').onclick=()=>{const p=P(),ids=[];['b','l','d'].forEach(me=>{const o=recommend({...p,meal:me}).out[0];if(o)ids.push(o.m.id)});S.plan=ids;sv();go()};bindT()};
+const sum=l=>l.reduce((a,m)=>({kcal:a.kcal+m.kcal,p:a.p+m.p,c:a.c+m.c,f:a.f+m.f,pr:a.pr+pmin(m)}),{kcal:0,p:0,c:0,f:0,pr:0});
+const mbar=m=>{const e=m.p*4+m.c*4+m.f*9||1,pc=v=>(v/e*100).toFixed(0);return `<div class="bar" role="img" aria-label="P ${pc(m.p*4)}% C ${pc(m.c*4)}% F ${pc(m.f*9)}%"><span style="width:${pc(m.p*4)}%;background:var(--am)"></span><span style="width:${pc(m.c*4)}%;background:var(--tn)"></span><span style="width:${pc(m.f*9)}%;background:var(--g)"></span></div><div class="leg" style="justify-content:flex-start"><span><i style="background:var(--am)"></i>${x('โปรตีน','Protein')} ${pc(m.p*4)}%</span><span><i style="background:var(--tn)"></i>${x('คาร์บ','Carbs')} ${pc(m.c*4)}%</span><span><i style="background:var(--g)"></i>${x('ไขมัน','Fat')} ${pc(m.f*9)}%</span></div>`};
+V.dash=()=>{const l=pl(),t=sum(l),opt=D.map(m=>`<option value="${m.id}">${nm(m)}</option>`).join('');
+ return `<h2>${x('แดชบอร์ดโภชนาการ','Nutrition dashboard')}</h2><div class="warn">${x('ค่าทั้งหมดเป็นการประมาณจากข้อมูลตัวอย่าง ความต้องการพลังงานและสารอาหารของแต่ละคนไม่เท่ากัน','All values are estimates from sample data. Energy and nutrient needs differ between people.')}</div>
+ <div class="box"><h3>${x('สรุปแผนมื้ออาหารวันนี้','Today\'s plan summary')}</h3>${l.length?`<p>${l.map(nm).join(' + ')}</p><p><b>~${t.kcal} kcal</b> · ${x('โปรตีน','Protein')} ${t.p}g · ${x('คาร์บ','Carbs')} ${t.c}g · ${x('ไขมัน','Fat')} ${t.f}g · ฿${t.pr}</p>${mbar(t)}${tdeeBar(t.kcal)}`:`<p class="mu">${x('ยังไม่มีเมนูในแผน ไปที่หน้า "วางแผน/งบ"','No dishes in your plan yet. Visit the Planner.')}</p>`}</div>
+ <div class="box sec"><h3>${x('เปรียบเทียบเมนู','Compare two dishes')}</h3><div class="f2"><select id="c1" aria-label="A">${opt}</select><select id="c2" aria-label="B">${opt}</select></div><div id="cmp"></div></div>
+ <div class="box sec"><h3>${x('เคล็ดลับการกินสมดุล','Balanced-eating tips')}</h3><ul><li>${x('ครึ่งจานควรเป็นผักและผลไม้','Aim for about half the plate as vegetables and fruit.')}</li><li>${x('เลือกต้ม ย่าง นึ่ง มากกว่าทอด','Prefer boiled, grilled or steamed over fried.')}</li><li>${x('ดื่มน้ำเปล่าแทนเครื่องดื่มหวานเป็นประจำ','Choose water over sweet drinks most of the time.')}</li></ul></div>`};
+B.dash=()=>{$('#c2').value=D[1].id;const draw=()=>{const a=D.find(m=>m.id==$('#c1').value),b=D.find(m=>m.id==$('#c2').value),rows=[['kcal','kcal',1],['P','p',1],['C','c',1],['F','f',1],['฿','price',1]];
+ $('#cmp').innerHTML=`<table><tr><th></th><th>${nm(a)}</th><th>${nm(b)}</th></tr>${rows.map(([lb,k])=>{const mx=Math.max(a[k],b[k])||1;return `<tr><td>${lb}</td>${[a,b].map(m=>`<td>${m[k]}<div class="bar"><span style="width:${m[k]/mx*100}%;background:var(--g)"></span></div></td>`).join('')}</tr>`}).join('')}</table><div style="display:grid;gap:.6rem;margin-top:.8rem">${mbar(a)}${mbar(b)}</div>`};
+ $('#c1').onchange=$('#c2').onchange=draw;draw()};
+const ED=[[['จานสมดุล','The balanced plate'],['ผักและผลไม้ราวครึ่งจาน โปรตีนหนึ่งในสี่ ข้าวหรือแป้งหนึ่งในสี่ เป็นแนวทางง่ายๆ ที่ปรับตามกิจกรรมได้','Roughly half veg and fruit, a quarter protein, a quarter starch is a simple guide you can adjust to your activity.']],
+[['เลือกอาหารโรงอาหารให้ดีขึ้น','Choosing better in a cafeteria'],['เลือกต้ม ย่าง นึ่ง ขอลดน้ำมัน น้ำตาล และน้ำปรุง เพิ่มผัก และแบ่งเครื่องดื่มหวานกับเพื่อน','Pick boiled, grilled or steamed; ask for less oil, sugar and sauce; add vegetables; share sweet drinks.']],
+[['อ่านฉลากโภชนาการ','Reading food labels'],['ดูขนาดต่อหน่วยบริโภคก่อน แล้วดูน้ำตาล ไขมัน และโซเดียม เปรียบเทียบที่ปริมาณเท่ากัน','Check the serving size first, then sugar, fat and sodium. Compare products at the same amount.']],
+[['การดื่มน้ำ','Healthy hydration'],['จิบน้ำเปล่าตลอดวัน ดื่มมากขึ้นเมื่ออากาศร้อนหรือออกกำลังกาย เครื่องดื่มหวานเพิ่มน้ำตาลโดยไม่รู้ตัว','Sip water through the day, more in hot weather or exercise. Sweet drinks add sugar quickly.']],
+[['ความเชื่อผิดๆ เกี่ยวกับโภชนาการ','Common misconceptions'],['คาร์โบไฮเดรตไม่ใช่ตัวร้าย เป็นแหล่งพลังงานหลัก การอดมื้ออาจทำให้กินมากขึ้นในมื้อถัดไป และอาหารดีไม่ได้วัดจากแคลอรี่อย่างเดียว','Carbs are not the enemy, they are a main energy source. Skipping meals can lead to overeating later, and healthy is not only about calories.']],
+[['นิสัยการกินสำหรับนักศึกษาที่ยุ่ง','Habits for busy students'],['วางแผนมื้อล่วงหน้า มีผลไม้หรือโยเกิร์ตเป็นของว่าง ไม่ข้ามมื้อเช้า และกินช้าลงเล็กน้อย','Plan meals ahead, keep fruit or yogurt as a snack, avoid skipping breakfast, and eat a little slower.']]];
+V.edu=()=>`<h2>${x('ความรู้เรื่องการกิน','Health education')}</h2>${ED.map(e=>`<details><summary>${x(...e[0])}</summary><p>${x(...e[1])}</p></details>`).join('')}
+ <p class="mu">${x('อ้างอิงแนวทางทั่วไปจาก WHO (Healthy diet) และกองโภชนาการ กรมอนามัย กระทรวงสาธารณสุข โปรดตรวจสอบต้นฉบับ นี่ไม่ใช่คำแนะนำทางการแพทย์เฉพาะบุคคล','General guidance based on WHO (Healthy diet) and the Thai Ministry of Public Health, Nutrition Division. Check the originals. This is not individual medical advice.')}</p>`;
+V.about=()=>`<h2>${x('เกี่ยวกับโครงการ','About this project')}</h2><div class="box"><p>${x('ต้นแบบเว็บไซต์ช่วยนักศึกษา SIET คณะครุศาสตร์อุตสาหกรรมและเทคโนโลยี สจล. เลือกอาหารสุขภาพดีในโรงอาหาร','A prototype helping SIET (KMITL) students choose healthier meals in the campus cafeteria.')}</p>
+ <div class="warn"><b>${x('ค่าโภชนาการเป็นการประมาณ','Nutrition values are estimates.')}</b> ${x('รายการและราคาของ 3 ร้านมาจากข้อมูลที่ให้มา ส่วนเมนูตัวอย่างอื่นยังไม่ยืนยัน โปรดตรวจสอบที่ร้านก่อนใช้งาน','Items and prices for the 3 shops come from the supplied list; other sample dishes are unverified. Please verify at the shops.')}</div>
+ <h3>${x('การเข้าสู่ระบบ','Login')}</h3><p>${x('Google Sign-In จริงใช้ไม่ได้ในหน้าที่โฮสต์แบบนี้ จึงใช้โปรไฟล์ในเครื่องที่กรอกอีเมล Gmail ไม่มีการยืนยันตัวตน เมื่อนำไปโฮสต์เองสามารถเปลี่ยนเป็น Google Identity Services พร้อมตรวจโทเคนฝั่งเซิร์ฟเวอร์','Real Google Sign-In cannot run on a page hosted this way, so login is a local profile keyed by a Gmail address, with no identity check. When you self-host, swap in Google Identity Services and verify the token on your server.')}</p><h3>${x('ความเป็นส่วนตัว','Privacy')}</h3><p>${x('คำตอบ แผน และบันทึกอาหารเก็บในเบราว์เซอร์ของคุณ ยกเว้นรูปที่คุณเลือกสแกน ซึ่งจะถูกส่งให้ Claude วิเคราะห์ในบัญชีของคุณ และเว็บนี้ไม่เก็บรูป','Your answers, plan and food log stay in your browser. The exception is a photo you choose to scan: it is sent to Claude on your own account for analysis, and this page does not store it.')}</p>
+ <h3>${x('วิธีเปลี่ยนเป็นข้อมูลจริง','Replacing sample data')}</h3><p>${x('แก้อาร์เรย์ D ในโค้ด หรือเชื่อมตาราง Supabase/PostgreSQL ที่มีโครงสร้างด้านล่าง แล้วโหลดข้อมูลผ่าน API ฝั่งเซิร์ฟเวอร์ (ห้ามใส่คีย์ลับในหน้าเว็บ)','Edit the D array in the code, or connect a Supabase/PostgreSQL table like the one below and load it through a server-side API (never put secret keys in the page).')}</p>
+ <pre>create table dishes(id serial primary key, name_th text, name_en text, category text, price_thb int, kcal int, protein_g numeric, carbs_g numeric, fat_g numeric, ingredients_th text, ingredients_en text, allergens text[], uncertain_allergens text[], tags text[], meals text[], verified bool default false, verified_on date);</pre>
+ <p class="mu">${x('ข้อแลกเปลี่ยน: เวอร์ชันนี้เป็นไฟล์เดียวแบบสแตติก โฮสต์ง่ายและไม่มีเซิร์ฟเวอร์ เมื่อพร้อมสามารถย้ายตรรกะไปเป็น React + TypeScript + Express + Supabase ได้ตามแผน','Trade-off: this version is a single static file, easy to host with no server. When ready, the same logic can move to React + TypeScript + Express + Supabase.')}</p></div>`;
+const mailOK=e=>/^[^\s@]+@gmail\.com$/i.test(e);
+function login(e){e=e.trim().toLowerCase();S.users=S.users||{};const u=S.users[e];if(u){S.prof=u.prof;S.plan=u.plan;S.tdee=u.tdee;S.log=u.log}S.cur=e;sv()}
+function logout(){sv();S.cur=null;S.prof=S.plan=S.tdee=S.log=undefined;sv();if(location.hash=='#home'||!location.hash)go();else location.hash='#home'}
+V.login=()=>S.cur?`<h2>${x('บัญชีของคุณ','Your account')}</h2><div class="box"><p><b>${S.cur}</b></p><p class="mu">${x('ข้อมูลของบัญชีนี้ (แบบสอบถาม แผนมื้ออาหาร TDEE) บันทึกในเบราว์เซอร์เครื่องนี้','Data for this account (answers, meal plan, TDEE) is saved in this browser.')}</p><button class="btn" id="lo2">${x('ออกจากระบบ','Log out')}</button></div>`:`<h2>${x('เข้าสู่ระบบด้วย Gmail','Log in with Gmail')}</h2><div class="box"><label for="em">${x('อีเมล Gmail','Gmail address')}</label><input id="em" type="email" placeholder="name@gmail.com" autocomplete="email" style="width:100%;padding:.55rem;border:1px solid var(--ln);border-radius:8px;background:var(--bg);color:var(--ink);font:inherit"><div id="le" class="err" role="alert"></div><button class="btn" id="li">${x('เข้าสู่ระบบ','Log in')}</button>
+ <div class="warn"><b>${x('โปรดทราบ','Please note')}:</b> ${x('นี่คือโปรไฟล์ในเครื่อง ไม่ได้ยืนยันกับ Google และไม่มีรหัสผ่าน ใช้เพื่อแยกข้อมูลของแต่ละคนบนเบราว์เซอร์นี้เท่านั้น ไม่ควรใช้บนเครื่องสาธารณะ','This is a local profile. It is not verified by Google and has no password; it only keeps each person\'s data separate in this browser. Avoid it on shared computers.')}</div></div>`;
+B.login=()=>{const em=$('#em');if($('#lo2'))$('#lo2').onclick=logout;if(!em)return;const go2=()=>{if(!mailOK(em.value.trim())){$('#le').textContent=x('กรุณากรอกอีเมล @gmail.com ที่ถูกต้อง','Please enter a valid @gmail.com address.');return}login(em.value);location.hash='#rec'};$('#li').onclick=go2;em.onkeydown=e=>{if(e.key=='Enter')go2()}};
+const ACT=[[1.2,'นั่งเรียนเป็นหลัก ออกกำลังน้อยมาก','Mostly sitting, little exercise'],[1.375,'ออกกำลังเบา 1–3 วัน/สัปดาห์','Light exercise 1–3 days/week'],[1.55,'ออกกำลังปานกลาง 3–5 วัน/สัปดาห์','Moderate exercise 3–5 days/week'],[1.725,'ออกกำลังหนัก 6–7 วัน/สัปดาห์','Hard exercise 6–7 days/week'],[1.9,'หนักมาก/นักกีฬา/งานใช้แรง','Very hard, athlete or physical job']];
+V.tdee=()=>{const t=S.tdee||{sex:'m',age:20,w:60,h:170,a:1.375},n=(id,lb,v,mn,mx)=>`<div><label for="${id}">${lb}</label><input id="${id}" type="number" min="${mn}" max="${mx}" value="${v}"></div>`;
+ return `<h2>${x('คำนวณ TDEE (พลังงานที่ใช้ต่อวัน)','TDEE calculator (daily energy use)')}</h2><div class="box"><p class="mu">${x('ใช้สมการ Mifflin-St Jeor คูณระดับกิจกรรม ผลเป็นค่าประมาณ แต่ละคนต่างกัน','Uses the Mifflin-St Jeor equation times an activity factor. Results are estimates and vary between people.')}</p><div class="f2"><div><label for="sx">${x('เพศตามสมการ','Sex (for the equation)')}</label><select id="sx"><option value="m" ${t.sex=='m'?'selected':''}>${x('ชาย','Male')}</option><option value="f" ${t.sex=='f'?'selected':''}>${x('หญิง','Female')}</option></select></div>${n('ag',x('อายุ (ปี)','Age (years)'),t.age,10,100)}${n('wt',x('น้ำหนัก (กก.)','Weight (kg)'),t.w,30,250)}${n('ht',x('ส่วนสูง (ซม.)','Height (cm)'),t.h,120,230)}<div><label for="ac2">${x('ระดับกิจกรรม','Activity level')}</label><select id="ac2">${ACT.map(a=>`<option value="${a[0]}" ${a[0]==t.a?'selected':''}>${x(a[1],a[2])}</option>`).join('')}</select></div></div><div id="te" class="err" role="alert"></div><button class="btn" id="tc">${x('คำนวณ','Calculate')}</button></div><div id="tr" class="sec"></div>`};
+function tShow(){const t=S.tdee;if(!t)return;$('#tr').innerHTML=`<div class="box"><h3>${x('ผลลัพธ์โดยประมาณ','Your estimate')}</h3><p><b>BMR ~${t.bmr} kcal</b> · <b>TDEE ~${t.tdee} kcal/${x('วัน','day')}</b></p><p class="mu">${x('แนวทางกระจายพลังงานต่อมื้อ (ประมาณ)','Rough split per meal')}: ${x('เช้า','Breakfast')} ~${Math.round(t.tdee*.25)} · ${x('กลางวัน','Lunch')} ~${Math.round(t.tdee*.4)} · ${x('เย็น','Dinner')} ~${Math.round(t.tdee*.35)} kcal</p>${t.age<18?`<div class="warn">${x('สมการนี้ไม่ได้ออกแบบมาสำหรับวัยที่ยังเติบโต ควรปรึกษาผู้เชี่ยวชาญ','This equation is not designed for growing teens. Consider asking a health professional.')}</div>`:''}<div class="warn">${x('เป็นค่าประมาณทั่วไป ไม่ใช่คำแนะนำทางการแพทย์หรือเป้าหมายที่ต้องทำตาม','A general estimate, not medical advice or a target you must hit.')}</div><p class="mu">✔ ${x('บันทึกแล้ว และใช้ช่วยจัดอันดับเมนูแนะนำ','Saved. It now helps rank your recommended meals.')} <a href="#rec">${x('ดูเมนูแนะนำ','See recommendations')}</a></p></div>`}
+B.tdee=()=>{tShow();$('#tc').onclick=()=>{const g=i=>+$('#'+i).value,a=g('ag'),w=g('wt'),h=g('ht');if(!(a>=10&&a<=100&&w>=30&&w<=250&&h>=120&&h<=230)){$('#te').textContent=x('กรุณากรอกอายุ 10–100 ปี น้ำหนัก 30–250 กก. ส่วนสูง 120–230 ซม.','Enter age 10–100, weight 30–250 kg and height 120–230 cm.');return}$('#te').textContent='';const sex=$('#sx').value,f=+$('#ac2').value,bmr=Math.round(10*w+6.25*h-5*a+(sex=='m'?5:-161));S.tdee={sex,age:a,w,h,a:f,bmr,tdee:Math.round(bmr*f)};sv();tShow()}};
+function tdeeBar(k){const t=S.tdee;if(!t)return `<p class="mu">${x('คำนวณ TDEE เพื่อเทียบกับแผนของคุณ','Calculate your TDEE to compare with your plan')}: <a href="#tdee">TDEE</a></p>`;const p=Math.round(k/t.tdee*100);return `<p>${x('แผนนี้ ≈','This plan ≈')} <b>${p}%</b> ${x('ของ TDEE ที่ประมาณไว้','of your estimated TDEE')} (${t.tdee} kcal)</p><div class="bar" role="img" aria-label="${p}%"><span style="width:${Math.min(100,p)}%;background:var(--g)"></span></div>`}
+const today=()=>new Date().toISOString().slice(0,10),esc=s=>String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+const lg=()=>{if(!S.log||S.log.d!=today())S.log={d:today(),items:[]};return S.log};
+let SC=[];
+V.scan=()=>`<h2>${x('สแกนอาหารที่กิน','Scan what you eat')}</h2><div class='box'><p class='mu'>${x('ถ่ายรูปอาหาร ระบบจะประมาณชนิดและสารอาหารให้ คุณตรวจแก้และบันทึกเองได้','Take a photo of your food. We estimate what it is and its nutrition; you check it and decide what to log.')}</p>
+ <button class='btn' id='pb2'>📷 ${x('ถ่ายรูป / เลือกรูปอาหาร','Take or choose a food photo')}</button><input id='ph' type='file' accept='image/*' capture='environment' hidden>
+ <div id='st' class='mu' role='status' aria-live='polite' style='margin-top:.6rem'></div><img id='pv' alt='' style='max-width:100%;max-height:240px;border-radius:10px;display:none;margin-top:.6rem'>
+ <div class='warn'>${x('รูปจะถูกส่งให้ Claude วิเคราะห์ในบัญชีของคุณ และไม่ถูกเก็บโดยเว็บนี้ ผลเป็นการประมาณจากภาพ อาจผิดได้ โดยเฉพาะส่วนผสมที่มองไม่เห็นและสารก่อภูมิแพ้ จึงควรถามร้านเสมอ','The photo is sent to Claude on your account and is not stored by this page. Results are visual estimates and can be wrong, especially for hidden ingredients and allergens, so always ask the vendor.')}</div></div>
+ <div id='sr' class='sec'></div>
+ <div class='box sec'><h3>${x('เพิ่มจากเมนูด้วยตนเอง','Add from the menu manually')}</h3><div class='row'><div style='flex:1;min-width:200px'><label for='mn'>${x('เลือกเมนู','Dish')}</label><select id='mn'>${D.map(m=>`<option value='${m.id}'>${esc(nm(m))}</option>`).join('')}</select></div><button class='btn o' id='mb'>${x('เพิ่ม','Add')}</button></div></div>
+ <div class='box sec'><h3>${x('อาหารที่กินวันนี้','Eaten today')}</h3><div id='lgb'></div></div>`;
+function drawLog(){const e=$('#lgb');if(!e)return;const l=lg(),T=l.items.reduce((a,m)=>({kcal:a.kcal+m.kcal,p:a.p+m.p,c:a.c+m.c,f:a.f+m.f}),{kcal:0,p:0,c:0,f:0});
+ e.innerHTML=l.items.length?`<table>${l.items.map((m,i)=>`<tr><td>${esc(x(...m.n))}</td><td>~${m.kcal} kcal</td><td><button class='btn o sm' data-r='${i}' aria-label='${x('ลบ','Remove')}'>✕</button></td></tr>`).join('')}</table><p><b>~${T.kcal} kcal</b> · ${x('โปรตีน','Protein')} ${T.p}g · ${x('คาร์บ','Carbs')} ${T.c}g · ${x('ไขมัน','Fat')} ${T.f}g</p>${tdeeBar(T.kcal)}`:`<p class='mu'>${x('ยังไม่มีอาหารที่บันทึกวันนี้ สแกนรูปหรือเพิ่มจากเมนู','Nothing logged today. Scan a photo or add a dish from the menu.')}</p>`;
+ e.querySelectorAll('[data-r]').forEach(b=>b.onclick=()=>{lg().items.splice(+b.dataset.r,1);sv();drawLog()})}
+function drawSC(){const e=$('#sr');if(!e)return;
+ e.innerHTML=SC.length?`<h3>${x('ผลการสแกน (ประมาณการ)','Scan results (estimates)')}</h3><div class='grid'>${SC.map((m,i)=>`<div class='card'><h3>${esc(x(m.th,m.en))}</h3><div class='mu'>${esc(x(m.en,m.th))}${m.portion?' · '+esc(m.portion):''}</div><div>~${m.kcal} kcal</div><div class='mu'>${x('โปรตีน','Protein')} ${m.p}g · ${x('คาร์บ','Carbs')} ${m.c}g · ${x('ไขมัน','Fat')} ${m.f}g</div><div><span class='chip ${m.conf=='high'?'':'w'}'>${x('ความมั่นใจ','Confidence')}: ${esc(m.conf)}</span>${m.mid?`<span class='chip'>${x('คล้ายเมนูตัวอย่าง','Like sample menu')}: ${esc(nm(D.find(d=>d.id==m.mid)))}</span>`:''}</div><label for='mu${i}'>${x('ปริมาณที่กินจริง','Portion eaten')}</label><select id='mu${i}'><option value='.5'>½×</option><option value='1' selected>1×</option><option value='1.5'>1½×</option><option value='2'>2×</option></select><button class='btn sm' data-a='${i}'>${x('บันทึกว่ากินแล้ว','Add to today')}</button><button class='btn o sm' data-d='${i}'>${x('ไม่ถูกต้อง ลบออก','Not right, dismiss')}</button></div>`).join('')}</div>`:'';
+ e.querySelectorAll('[data-a]').forEach(b=>b.onclick=()=>{const i=+b.dataset.a,m=SC[i],k=+$('#mu'+i).value,r=v=>Math.round(v*k);lg().items.push({n:[m.th,m.en],kcal:r(m.kcal),p:r(m.p),c:r(m.c),f:r(m.f)});SC.splice(i,1);sv();drawSC();drawLog()});
+ e.querySelectorAll('[data-d]').forEach(b=>b.onclick=()=>{SC.splice(+b.dataset.d,1);drawSC()})}
+B.scan=async()=>{drawLog();SC=[];const inp=$('#ph'),st=$('#st'),btn=$('#pb2');
+ $('#mb').onclick=()=>{const m=D.find(d=>d.id==$('#mn').value);lg().items.push({n:m.n,kcal:m.kcal,p:m.p,c:m.c,f:m.f});sv();drawLog()};
+ let sm=null,lim=null;try{sm=await claude.use('sample');lim=sm&&await sm.limits()}catch(e){}
+ if(!document.body.contains(st))return;
+ if(!sm||!lim||!lim.images){st.textContent=x('การสแกนรูปใช้ไม่ได้ในหน้านี้ กรุณาเพิ่มจากเมนูด้วยตนเอง','Photo scanning is not available in this view. Please add dishes manually below.');btn.disabled=true;return}
+ const msg=c=>({not_granted:x('คุณไม่ได้อนุญาตให้วิเคราะห์รูป','Photo analysis was not allowed.'),sampling_disabled:x('บัญชีนี้ใช้ Claude ไม่ได้','Claude is not available for this account.'),rate_limited:x('ใช้งานบ่อยเกินไป โปรดลองใหม่ภายหลัง','Too many requests. Please try again later.'),image_rejected:x('ใช้รูปนี้ไม่ได้ ลองรูปอื่น','That image cannot be used. Try another.'),invalid_json:x('อ่านผลไม่สำเร็จ ลองถ่ายใหม่','Could not read the result. Try another photo.')})[c]||x('เกิดข้อผิดพลาด ลองใหม่อีกครั้ง','Something went wrong. Please try again.');
+ btn.onclick=()=>inp.click();
+ inp.onchange=async()=>{const f=inp.files[0];if(!f)return;if(lim.images.mediaTypes&&lim.images.mediaTypes.length&&!lim.images.mediaTypes.includes(f.type)){st.textContent=x('ไม่รองรับไฟล์ชนิดนี้','This file type is not supported.');inp.value='';return}
+ const pv=$('#pv');pv.src=URL.createObjectURL(f);pv.style.display='block';st.textContent=x('กำลังวิเคราะห์รูป...','Analyzing the photo…');btn.disabled=true;SC=[];drawSC();
+ const menu=D.map(m=>m.id+'='+m.n[1]).join('; ');
+ const pr='You help a Thai university cafeteria nutrition app. Look at the photo and list each distinct food or drink you can see. Reply with JSON only, in this shape: {"food":true,"items":[{"th":"Thai name","en":"English name","portion":"short amount like 1 plate","kcal":0,"p":0,"c":0,"f":0,"conf":"high|medium|low","menu_id":null}]}. kcal is total energy and p, c, f are grams of protein, carbohydrate and fat for the visible portion; these are rough estimates. Set menu_id to a number only if the item clearly matches one of these sample dishes (id=name): '+menu+'. Do not guess hidden ingredients or brands. If no food is visible, reply {"food":false,"items":[]}.';
+ try{const r=await sm.json(pr,{images:[f],modelTier:'quick'});const n0=v=>Math.min(3000,Math.max(0,Math.round(+v||0)));
+ SC=((r&&r.items)||[]).slice(0,8).map(i=>({th:String(i.th||i.en||'?'),en:String(i.en||i.th||'?'),portion:String(i.portion||''),kcal:n0(i.kcal),p:n0(i.p),c:n0(i.c),f:n0(i.f),conf:['high','medium','low'].includes(i.conf)?i.conf:'low',mid:D.some(d=>d.id==i.menu_id)?+i.menu_id:0}));
+ st.textContent=SC.length?x('ตรวจสอบผลด้านล่าง แล้วเลือกปริมาณที่กินจริง','Check the results below and choose the portion you ate.'):x('ไม่พบอาหารในรูป ลองถ่ายให้ใกล้และสว่างขึ้น','No food found. Try a closer, brighter photo.');drawSC()}
+ catch(e){st.textContent=msg(e&&e.code)}
+ btn.disabled=false;inp.value=''}};
+let tT;function toast(m){const t=$('#toast');t.textContent=m;t.hidden=false;clearTimeout(tT);tT=setTimeout(()=>{t.hidden=true},1800)}
+function sheet(){const s=$('#sh'),n=(S.cur||'').split('@')[0],it=[['plan','💰',['วางแผน/งบ','Planner']],['tdee','🔥',['TDEE','TDEE']],['dash','📊',['แดชบอร์ด','Dashboard']],['edu','📚',['ความรู้','Learn']],['about','ℹ️',['เกี่ยวกับ','About']],['login','👤',S.cur?[n,n]:['เข้าสู่ระบบ','Log in']]];
+ s.innerHTML=`<div class='pn' role='dialog' aria-modal='true' aria-label='${x('เมนูเพิ่มเติม','More')}'><div class='gr'></div><div class='tl'>${it.map(([k,i,l])=>`<a href='#${k}'><span aria-hidden='true'>${i}</span>${esc(x(...l))}</a>`).join('')}</div></div>`;s.hidden=false;s.onclick=e=>{if(e.target===s||e.target.closest('a'))s.hidden=true}}
+document.addEventListener('keydown',e=>{if(e.key=='Escape')$('#sh').hidden=true});
+let CUR=[];
+function pick(l){const h=S.hist||[],w=l.map(m=>{const i=h.indexOf(m.id);return i<0?1:i<10?.15:.5});let r=Math.random()*w.reduce((a,b)=>a+b,0);for(let i=0;i<l.length;i++){r-=w[i];if(r<=0)return l[i]}return l[l.length-1]}
+function surprise(l,box){l=(l||[]).filter(m=>m.cat!='drink'&&m.cat!='side');const e=$(box);if(!l.length){e.innerHTML=`<div class='warn'>${x('ไม่มีเมนูให้สุ่ม','Nothing to pick from.')}</div>`;return}for(const k in VSEL)delete VSEL[k];const m=pick(l);S.hist=[m.id,...(S.hist||[]).filter(v=>v!=m.id)].slice(0,24);sv();e.innerHTML=`<h3>🎲 ${x('เมนูสุ่มสำหรับคุณ','Your random pick')}</h3><div class='grid'>${card(m)}</div>`;bindT();e.scrollIntoView({behavior:'smooth',block:'nearest'})}
+function bindV(){document.querySelectorAll('select[data-v]').forEach(s=>s.onchange=()=>{const m=D.find(d=>d.id==s.dataset.v);VSEL[m.id]=+s.value;const t=document.createElement('div');t.innerHTML=card(m,RMAP[m.id]);s.closest('article').replaceWith(t.firstElementChild);bindT()})}
+function bindT(){bindV();document.querySelectorAll('[data-t]').forEach(b=>b.onclick=()=>{const i=+b.dataset.t,p=S.plan||[];const add=!p.includes(i);S.plan=add?[...p,i]:p.filter(v=>v!=i);sv();toast(add?x('เพิ่มในแผนแล้ว ✓','Added to plan ✓'):x('นำออกจากแผนแล้ว','Removed from plan'));const y=scrollY;go();scrollTo(0,y)})}
+function go(){let h=(location.hash||'#home').slice(1);if(!V[h])h='home';$('#app').innerHTML=V[h]();B[h]&&B[h]();bindT();
+ $('#nav').innerHTML=R.map((k,i)=>`<a href="#${k}" class="${k==h?'on':''}" ${k==h?'aria-current="page"':''}>${x(...[['หน้าแรก','Home'],['แนะนำอาหาร','Recommend'],['เมนู','Menu'],['สแกนอาหาร','Scan'],['วางแผน/งบ','Planner'],['TDEE','TDEE'],['แดชบอร์ด','Dashboard'],['ความรู้','Learn'],['เกี่ยวกับ','About']][i])}</a>`).join('');$('#lg').textContent=L=='th'?'EN':'ไทย';document.documentElement.lang=L;
+ $('#ac').innerHTML=S.cur?`<a href="#login" class="mu" title="${S.cur}" style="max-width:80px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">👤 ${S.cur.split('@')[0]}</a><button class="btn o sm" id="lo">${x('ออกจากระบบ','Log out')}</button>`:`<a class="btn sm" href="#login">${x('เข้าสู่ระบบ','Log in')}</a>`;if($('#lo'))$('#lo').onclick=logout;
+ const bt=[['home','🏠',['หน้าแรก','Home']],['rec','🎯',['แนะนำ','Picks']],['scan','📷',['สแกน','Scan']],['menu','🍽',['เมนู','Menu']],['more','☰',['เพิ่มเติม','More']]];
+ $('#bn').innerHTML=bt.map(([k,i,l])=>{const on=k==h||(k=='more'&&!['home','rec','scan','menu'].includes(h));return `<a href='${k=='more'?'#':'#'+k}' data-k='${k}' class='${on?'on':''} ${k=='scan'?'cta':''}' ${on?"aria-current='page'":''}><span aria-hidden='true'>${i}</span>${x(...l)}</a>`}).join('');
+ $('#bn [data-k=more]').onclick=e=>{e.preventDefault();sheet()}}
+$('#lg').onclick=()=>{L=L=='th'?'en':'th';S.lang=L;sv();go()};addEventListener('hashchange',()=>{go();scrollTo(0,0)});go();
+</script></body></html>
